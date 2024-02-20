@@ -71,10 +71,10 @@ function couponApply() {
         document.getElementById("coupon").setAttribute("disabled", "true");
         document.getElementById("coBtn").setAttribute("disabled", "true");
     }
-    else if(bookedSeat.length !== 4){
+    else if (bookedSeat.length !== 4) {
         alert("You need to buy more tickets for being eligible for coupon");
     }
-    else{
+    else {
         alert("Invalid Coupon Code!")
     }
 
@@ -127,10 +127,6 @@ for (i = 0; i < seats.length; i++) {
             let grandTotal = document.getElementById("grandTotal");
             let final = totalPrice;
             grandTotal.innerText = final;
-
-            
-
-
         }
 
         else {
@@ -138,6 +134,22 @@ for (i = 0; i < seats.length; i++) {
         }
     });
 }
+
+let nextBtn = document.getElementById("lastBtn");
+let phnNumberInput = document.getElementById("phnNumber");
+
+nextBtn.disabled = true;
+
+phnNumberInput.addEventListener("input", function(){
+    let value = phnNumberInput.value;
+
+    if ( value !== "" && bookedSeat.length > 0){
+        nextBtn.disabled = false;
+    }
+    else{
+        nextBtn.disabled = true;
+    }
+})
 
 
 
