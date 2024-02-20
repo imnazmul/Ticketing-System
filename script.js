@@ -11,26 +11,78 @@ let discountedByCoupon = 0;
 let grandTotalGlobal;
 
 
-
 function couponApply() {
     let code = document.getElementById("coupon").value;
-    if (code === "NEW15") {
-        
+
+    if (code === "NEW15" && bookedSeat.length === 4) {
         let final = grandTotalGlobal.innerText * 0.15;
         discountedByCoupon = final;
+        let lastPrice = grandTotalGlobal.innerText - discountedByCoupon;
+        document.getElementById('grandTotal').innerText = lastPrice;
 
-        // let grandTotalNew = document.getElementById("grandTotal");
-        // let out = grandTotalGlobal - discountedByCoupon;
-        // grandTotalGlobal.innerText = out;
+        // how much discount he got
+        let priceSec = document.getElementById("totalPrice");
 
-        
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("flex");
+        newDiv.classList.add("justify-between");
+        newDiv.classList.add("text-red-500");
+
+        let totalDiscountT = document.createElement("p");
+        totalDiscountT.innerText = "Total DIscount";
+        let totalDiscounted = document.createElement("p");
+        totalDiscounted.innerText = discountedByCoupon;
+
+        newDiv.appendChild(totalDiscountT);
+        newDiv.appendChild(totalDiscounted);
+
+        priceSec.appendChild(newDiv);
+
+        // disable input
+        document.getElementById("coupon").setAttribute("disabled", "true");
+        document.getElementById("coBtn").setAttribute("disabled", "true");
     }
+
+    else if (code === "Couple 20" && bookedSeat.length === 4) {
+        let final = grandTotalGlobal.innerText * 0.2;
+        discountedByCoupon = final;
+        let lastPrice = grandTotalGlobal.innerText - discountedByCoupon;
+        document.getElementById('grandTotal').innerText = lastPrice;
+
+        // how much discount he got
+        let priceSec = document.getElementById("totalPrice");
+
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("flex");
+        newDiv.classList.add("justify-between");
+        newDiv.classList.add("text-red-500");
+
+        let totalDiscountT = document.createElement("p");
+        totalDiscountT.innerText = "Total DIscount";
+        let totalDiscounted = document.createElement("p");
+        totalDiscounted.innerText = discountedByCoupon;
+
+        newDiv.appendChild(totalDiscountT);
+        newDiv.appendChild(totalDiscounted);
+
+        priceSec.appendChild(newDiv);
+
+        // disable input
+        document.getElementById("coupon").setAttribute("disabled", "true");
+        document.getElementById("coBtn").setAttribute("disabled", "true");
+    }
+    else if(bookedSeat.length !== 4){
+        alert("You need to buy more tickets for being eligible for coupon");
+    }
+    else{
+        alert("Invalid Coupon Code!")
+    }
+
 }
 
 
 const seats = document.querySelectorAll(".seat");
 for (i = 0; i < seats.length; i++) {
-
     const seat = seats[i];
     seat.addEventListener("click", function () {
 

@@ -463,24 +463,29 @@
             </div>
 
             <div id="selected-seat" class="border-b-2 border-gray-400">
-
               <!-- <div id="seatInfo" class="flex gap-x-36 mb-4">
                 <div><p>B1</p></div>
                 <div><p>Economy</p></div>
                 <div><p>550</p></div>
               </div> -->
-              
             </div>
-            <div class="flex justify-between text-xl font-bold mt-4 mb-4">
-              <p>Total Price</p>
-              <p>BDT <span id="total">0</span></p>
+            <div
+              id="totalPrice"
+              class="text-xl font-bold mt-4 mb-4">
+              <div class="flex justify-between">
+                <p>Total Price</p>
+                <p>BDT <span id="total">0</span></p>
+              </div>
             </div>
             <div class="mb-8">
-              <input id="coupon"
+              <input
+                id="coupon"
                 class="h-[56px] pl-4"
                 type="text"
-                placeholder="Have any coupon?" />
-              <button onclick="couponApply()" class="btn bg-green-500">Apply</button>
+                placeholder="Have any coupon?"/>
+              <button id="coBtn" onclick="couponApply()" class="btn bg-green-500">
+                Apply
+              </button>
             </div>
             <div
               class="flex justify-between text-xl font-bold mt-4 mb-8 border-b border-gray-300">
@@ -495,7 +500,7 @@
                 type="text"
                 class="h-[64px] w-[433px] rounded-lg pl-3"
                 placeholder="your name" /><br />
-              <label for="phone">Phone number:*</label><br />
+              <label for="phone">Phone number: <span class="text-red-500">*</span></label><br />
               <input
                 type="number"
                 class="h-[64px] w-[433px] rounded-lg pl-3"
