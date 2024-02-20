@@ -299,7 +299,7 @@
                       stroke-width="2.000000"
                       stroke-linejoin="round" />
                   </svg>
-                  <p>40 Seats Available</p>
+                  <p><span id="seatAvailableCount">8</span> Seats Available</p>
                 </div>
               </div>
               <div class="bg-[#F7F8F8] mt-6 rounded-3xl p-8">
@@ -456,7 +456,7 @@
               class="flex gap-x-36 border-b-2 border-gray-400 border-dashed mb-4 font-bold">
               <div class="flex gap-2">
                 <p>Seat</p>
-                <p class="bg-green-500 rounded-lg p-1">1</p>
+                <p id="seat-count" class="bg-green-500 rounded-lg p-1">0</p>
               </div>
               <div><p>Class</p></div>
               <div><p>Price</p></div>
@@ -464,28 +464,28 @@
 
             <div id="selected-seat" class="border-b-2 border-gray-400">
 
-              <div class="flex gap-x-36 mb-4">
+              <!-- <div id="seatInfo" class="flex gap-x-36 mb-4">
                 <div><p>B1</p></div>
                 <div><p>Economy</p></div>
                 <div><p>550</p></div>
-              </div>
+              </div> -->
               
             </div>
             <div class="flex justify-between text-xl font-bold mt-4 mb-4">
               <p>Total Price</p>
-              <p>BDT <span>2000</span></p>
+              <p>BDT <span id="total">0</span></p>
             </div>
             <div class="mb-8">
-              <input
+              <input id="coupon"
                 class="h-[56px] pl-4"
                 type="text"
                 placeholder="Have any coupon?" />
-              <button class="btn bg-green-500">Apply</button>
+              <button onclick="couponApply()" class="btn bg-green-500">Apply</button>
             </div>
             <div
               class="flex justify-between text-xl font-bold mt-4 mb-8 border-b border-gray-300">
               <p>Grand Total</p>
-              <p>BDT <span>2000</span></p>
+              <p>BDT <span id="grandTotal">0</span></p>
             </div>
           </div>
           <div class="font-bold">
