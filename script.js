@@ -8,14 +8,33 @@ let count = 0;
 let AvailableSeat = parseInt(document.getElementById("seatAvailableCount").innerText);
 let bookedSeat = [];
 let discountedByCoupon = 0;
+let grandTotalGlobal;
+
+
+
+function couponApply() {
+    let code = document.getElementById("coupon").value;
+    if (code === "NEW15") {
+        
+        let final = grandTotalGlobal.innerText * 0.15;
+        discountedByCoupon = final;
+
+        // let grandTotalNew = document.getElementById("grandTotal");
+        // let out = grandTotalGlobal - discountedByCoupon;
+        // grandTotalGlobal.innerText = out;
+
+        
+    }
+}
+
 
 const seats = document.querySelectorAll(".seat");
 for (i = 0; i < seats.length; i++) {
 
     const seat = seats[i];
     seat.addEventListener("click", function () {
-       
-        if(bookedSeat.includes(seat)){
+
+        if (bookedSeat.includes(seat)) {
             alert("The seat is already booked.")
         }
 
@@ -33,7 +52,7 @@ for (i = 0; i < seats.length; i++) {
             div.classList.add("flex");
             div.classList.add("gap-x-36");
             div.classList.add("mb-4");
-            
+
             let seatName = document.createElement("p");
             seatName.innerText = seat.innerText;
             let seatClass = document.createElement("p");
@@ -50,23 +69,26 @@ for (i = 0; i < seats.length; i++) {
             let total = document.getElementById("total");
             let totalPrice = 550 * bookedSeat.length;
             total.innerText = totalPrice;
+            grandTotalGlobal = total;
+
 
             let grandTotal = document.getElementById("grandTotal");
-            let final = totalPrice - discountedByCoupon;
+            let final = totalPrice;
             grandTotal.innerText = final;
 
+            
+
+
         }
-        
+
         else {
             alert("Bro you cannt buy more then 4 tickets.")
         }
-
-        let code = document.getElementById("coupon").value;
-        function couponApply(){
-            if(code === "NEW15"){
-                discountedByCoupon = totalPrice * 0.15;
-            }
-        }
-
     });
 }
+
+
+
+
+
+
